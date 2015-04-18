@@ -1,0 +1,7 @@
+*.a
+*.o
+*.out
+
+
+# pyton
+*.py[co]
