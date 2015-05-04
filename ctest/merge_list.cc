@@ -20,14 +20,17 @@ Node* merge(Node* head1, Node* head2) {
     Node* p = head;
     while (head1 != NULL && head2 != NULL) {
         if (head1->data < head2->data) {
-            head1 = head1->next;
             p->next = head1;
+            p = p->next;
+            head1 = head1->next;
         } else if (head1->data > head2->data) {
+            p->next = head2
+            p = p->next;
             head2 = head2->next;
-            p->next = head2;
         } else {
             p->next = head1; // always from first list
-            head1 = head1.next;
+            p = p->next;
+            head1 = head1->next;
             Node* tmp = head2;
             head2 = head->next;
             delete tmp;
