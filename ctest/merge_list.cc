@@ -1,11 +1,8 @@
-
-
 class Node {
 public:
     int data;
     Node* next;
 };
-
 
 Node* merge(Node* head1, Node* head2) {
     if (head1 == NULL) {
