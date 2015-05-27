@@ -1,7 +1,7 @@
 *.a
 *.o
 *.out
-
+ctest/bin/
 
 # pyton
 *.py[co]
