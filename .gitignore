@@ -5,3 +5,6 @@
 
 # pyton
 *.py[co]
+
+# vi
+*.swp
