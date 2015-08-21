@@ -1,3 +1,10 @@
+/**
+ * lazy initialization from C#.
+ * Lazy initialization of an object means that its creation is deferred until
+ * it is first used. Lazy initialization is primarily used to improve
+ * performance, avoid wasteful computation, and reduce program memory
+ * requirements.
+ */
 #include <utility>
 #include <functional>
 #include "optional.hh"
@@ -6,7 +13,8 @@ template<typename T>
 class Lazy {
 public:
     Lazy() {}
-    template<typename Func, typename ... Args>
+
+    template<typename Func, typename... Args>
     Lazy(Func&& func, Args&&... args) {
         // use a lambda to save args, so _func will have no arguments.
         _func = [&func, &args...] () { return func(args...); };
@@ -33,4 +41,3 @@ lazy(Func&& fun, Args&& ... args) {
     return Lazy<typename std::result_of<Func(Args...)>::type>(
         std::forward<Func>(fun), std::forward<Args>(args)...);
 }
-

@@ -1,3 +1,8 @@
+/**
+ * This is from boost::optional. It is usefull when functions which should
+ * return a value but which might not have a value to return. So they can
+ * return a Optional value which is not inited.
+ */
 #include <type_traits>
 #include <utility>
 #include <stdexcept>
