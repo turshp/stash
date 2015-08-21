@@ -1,11 +1,15 @@
+<<<<<<< HEAD
 #include <cstdio>
 
+=======
+>>>>>>> f2aef8356e6059ea209c57b359af604ed93ff863
 class Node {
 public:
     int data;
     Node* next;
 };
 
+<<<<<<< HEAD
 // remove nodes with identical data
 void remove_repetition(Node* head) {
     while (head && head->next) {
@@ -21,6 +25,8 @@ void remove_repetition(Node* head) {
 }
 
 
+=======
+>>>>>>> f2aef8356e6059ea209c57b359af604ed93ff863
 Node* merge(Node* head1, Node* head2) {
     static Node snode;
 
