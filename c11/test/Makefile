@@ -1,7 +1,7 @@
 CXX=clang++-3.6
 
 INCLUDE=../
-bins = optest lztest tctest eitest anytest fttest rgtest
+bins = optest lztest tctest eitest anytest fttest rgtest rftest
 
 all:$(bins)
 
@@ -25,6 +25,9 @@ fttest:test_function_traits.cc ../function_traits.hh
 
 rgtest: test_range.cc ../range.hh
 	$(CXX) --std=c++11 -I$(INCLUDE) -o rgtest test_range.cc
+
+rftest:test_reference.cc ../type_name.hh
+	$(CXX) --std=c++11 -I$(INCLUDE) -o rftest test_reference.cc
 
 clean:
 	-rm $(bins)
