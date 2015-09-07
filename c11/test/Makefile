@@ -1,7 +1,7 @@
 CXX=clang++-3.6
 
 INCLUDE=../
-bins = optest lztest tctest eitest anytest fttest rgtest rftest
+bins = optest lztest tctest eitest anytest fttest rgtest rftest rttest
 
 all:$(bins)
 
@@ -28,6 +28,9 @@ rgtest: test_range.cc ../range.hh
 
 rftest:test_reference.cc ../type_name.hh
 	$(CXX) --std=c++11 -I$(INCLUDE) -o rftest test_reference.cc
+
+rttest:test_return_tuple.cc ../lenminmax.hh
+	$(CXX) --std=c++11 -I$(INCLUDE) -o rttest test_return_tuple.cc
 
 clean:
 	-rm $(bins)

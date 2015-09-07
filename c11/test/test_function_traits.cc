@@ -3,13 +3,13 @@
 #include <string>
 #include <type_traits>
 #include "function_traits.hh"
-
+#include "type_name.hh"
 
 using namespace std;
 
 template<typename T>
 void print_type() {
-    cout << typeid(T).name() << endl;
+    cout << type_name<T>() << endl;
 }
 
 float (*castfunc) (string, int);
