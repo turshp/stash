@@ -2,7 +2,12 @@
 #include <string>
 #include <tuple>
 #include <iostream>
+#include "type_name.hh"
 
+
+// 递归的方式展开参数包
+// MakeIndexes<3> ----> MakeIndexes<2, 2> ----> MakeIndexes<1,1,2>
+// ----> MakeIndexes<0,0,1,2 >
 template<int ...>
 struct IndexSeq{};
 
@@ -16,6 +21,7 @@ struct MakeIndexes<0, Indexes...> {
     using type = IndexSeq<Indexes...>;
 };
 
+// 
 template<typename T>
 void Print(T t) {
     std::cout << t << std::endl;
@@ -46,5 +52,7 @@ int main() {
     std::string c = "Jane Doe";
     print(a, b, c);
 
-    std::cout << typeid(MakeIndexes<5>).name() << std::endl;
+    using T = MakeIndexes<5>;
+    std::cout << type_name<T>() << std::endl;
+    std::cout << type_name<T::type>() << std::endl;
 }

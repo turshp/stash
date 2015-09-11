@@ -1,5 +1,5 @@
 CXX=clang++-3.6
-CXXFLAGS=-std=c++11 -Wall
+CXXFLAGS=-std=c++11 -Wall -O2
 
 INCLUDE=../
 bins = optest lztest tctest eitest anytest fttest rgtest rftest rttest
