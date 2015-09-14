@@ -1,6 +1,6 @@
 /**
  * From boost::any
- * Provides the class Any which, like JavaScript variables, can store
+ * Provides the class Any, which like JavaScript variables, can store
  * arbitrary types of information.
  */
 #include <memory>
@@ -13,18 +13,19 @@ public:
     Any(void):
         _tp_index(typeid(void)) {}
 
-    Any(Any& that):
+    Any(const Any& that):
         _ptr(that.clone()),
         _tp_index(that._tp_index) {}
 
     Any(Any&& that):
         _ptr(std::move(that._ptr)),
-        _tp_index(std::move(that._tp_index)) {} // can std::type_index move?
+        _tp_index(std::move(that._tp_index)) {}
 
-    // use std::decay to remove reference and cv-qualifier
-    // so if the original type of U is same with type Any, will not allowed
-    // to compile
-    // but why do this?
+    /**
+     * use std::decay to remove reference and cv-qualifier
+     * so if the original type of U is same with type Any, will not allowed
+     * to compile
+     */
     template<typename U, class = typename std::enable_if<
         !std::is_same<typename std::decay<U>::type, Any>::value, U>::type>
     Any(U&& value):

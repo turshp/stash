@@ -18,6 +18,8 @@ public:
     Lazy(Func&& func, Args&&... args) {
         // use a lambda to save args, so _func will have no arguments.
         _func = [&func, &args...] () { return func(args...); };
+        // or use std::bind
+        //_func = std::bind(std::forward<Func>(func), std::forward<Args>(args)...);
     }
 
     // save the result in Optional.  

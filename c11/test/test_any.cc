@@ -24,7 +24,7 @@ void test_any() {
 
     const Any n3 = 1;
     n2 = n3;
-    // Any n4 = n3;  // compile failed
+    Any n4 = n3;  // compile failed
 }
 
 int main() {

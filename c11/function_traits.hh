@@ -6,7 +6,7 @@
 #include <tuple>
 
 
-// definition of function_traits
+// declaration of function_traits
 template<typename T>
 struct function_traits;
 
@@ -40,6 +40,8 @@ template<typename R, typename... Args>
 struct function_traits<std::function<R(Args...)>>:function_traits<R(Args...)> {};
 
 // for member function
+// about identifier __VA_ARGS__, check out in
+// https://en.wikipedia.org/wiki/Variadic_macro
 #define FUNCTION_TRAITS(...) \
     template<typename R, typename ClassType, typename... Args> \
     struct function_traits<R(ClassType::*)(Args...) __VA_ARGS__>:\

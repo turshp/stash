@@ -30,7 +30,7 @@ rgtest: test_range.cc ../range.hh
 rftest:test_reference.cc ../type_name.hh
 	$(CXX) -$(CXXFLAGS) -I$(INCLUDE) -o rftest test_reference.cc
 
-rttest:test_return_tuple.cc ../lenminmax.hh
+rttest:test_return_tuple.cc lenminmax.hh
 	$(CXX) -$(CXXFLAGS) -I$(INCLUDE) -o rttest test_return_tuple.cc
 
 clean:
