@@ -2,7 +2,7 @@ CXX=clang++-3.6
 CXXFLAGS=-std=c++11 -Wall -O2
 
 INCLUDE=../
-bins = optest lztest tctest eitest anytest fttest rgtest rftest rttest
+bins = optest lztest tctest eitest anytest fttest rgtest rftest rttest vrtest
 
 all:$(bins)
 
@@ -32,6 +32,9 @@ rftest:test_reference.cc ../type_name.hh
 
 rttest:test_return_tuple.cc lenminmax.hh
 	$(CXX) -$(CXXFLAGS) -I$(INCLUDE) -o rttest test_return_tuple.cc
+
+vrtest:test_variant.cc ../variant.hh
+	$(CXX) -$(CXXFLAGS) -Wno-unused-value -I$(INCLUDE) -o vrtest test_variant.cc
 
 clean:
 	-rm $(bins) *.out
